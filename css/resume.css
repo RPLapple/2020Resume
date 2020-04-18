@@ -1,0 +1,315 @@
+*{
+    /*   border: solid 1px black; */
+    }
+    
+    body{
+      padding: 50px; /*outside edge*/
+      display: flex;
+      justify-content: center; /* to make it in the central */
+      background-color: black;
+      color: rgba(255, 255, 255, 0.95); 
+      /* if we don't set the color, system will keep look for it until defult 
+         a bit transparent is cool*/
+      font-size: 15px;
+      line-height: 28px;
+      letter-spacing: 1px; 
+      /* if it's in Mandarin, will need a bit more space */
+      font-family: "微軟正黑體", sans-serif;
+    }
+
+    
+    ul {
+      padding: 0;       
+      list-style: none; /*cancel li dot */
+    }
+    
+    h2 {
+      margin: 0;          /*cancel default margin*/
+      margin-bottom: 25px;
+      font-weight: 400px;
+    }
+    
+    h2::after { /*fake element, so no need to write html*/
+      content: ""; 
+      /* need to add content:"", so things will show up */
+      /* display: block; => will show on the next line */
+      display: inline-block; /*inline-block => show after it.*/
+      width: 20px;
+      height: 8px;
+      background-color: #FF7168;
+      margin-left: 10px;  /*box and left side word's distance.*/
+    }
+    
+    h4 { 
+      margin: 0;
+      margin-top: 40px; 
+      /* beginning of each block, which can have some space before start*/
+      opacity: 0.8; /* make words looks lighter */
+      font-weight: 400px; /* make it thiner */
+    }
+    
+    a {
+      color: white; /* the color of link */
+      /* text-decoration: none; delete the bottom line of link */
+    }
+    
+    hr{ /*size of bottom line*/
+      border: none;
+      border-bottom: solid 4px #FF7168;
+      width: 40%;
+      margin-left: 0; /*automatically stay on left side*/
+    }
+    
+    .resume {
+      display: flex;  /*ake them into 1 line, defult is to stay left and right*/
+      max-width: 1024px; /*limitation of width*/
+      border: solid 8px white; 
+      padding: 50px; 
+      /*original border was too cloase to text*/
+      position: relative; /* so the upright pic can find something to position*/
+    }
+    
+    .left {
+      width: 40%;  
+    }
+    
+    .right {
+      width: 60%;
+    }
+    
+    .left, .right {
+      padding: 15px;  /* inner eage distance*/
+    }
+    
+    .left {
+      padding-right: 50px; /* two side to the middle line */
+      border-right: solid 1px #FF7168;
+      /*can do on the left(right edge) or right(left edge)*/
+    }
+    
+    .right {
+      padding-left: 50px;/* two side to the middle line */
+      padding-top: 150px; /*so it won't touch the pic on the upright*/
+    }
+    
+    .decoration {  /*for the upright setting*/
+      width: 300px;
+      height: 140px;
+      background: linear-gradient(135deg, #FF7168, purple);
+      /*where the gradient start and end (angle, start color, end color)*/
+      border-radius: 70px 0 0 70px; /* upleft, upright, downright, down left  */
+      position: absolute; /*remember that resume also need position */
+      right: 0; 
+      top: 50px;  /*distance with up */
+    }
+    
+    .listExperiences>li{ /* decoration for the years */
+      display: flex; 
+      /*Can't just listExp, because it will all in
+        li will be into 1 line, from left to right*/
+      margin-bottom: 10px;
+      /*To make each block to have 10px space*/
+    }
+      /*the color next to the years */
+    .listExperiences>li:nth-child(1) ul{
+      border-color: #FF7168;
+    }
+    
+    .listExperiences>li:nth-child(2) ul{ 
+      border-color: #FFA582;
+    }
+    
+    .listExperiences>li:nth-child(3) ul{ 
+      border-color: #FFB087;
+    }
+    
+    .listExperiences>li:nth-child(4) ul{ 
+      border-color: #FFDE9E;
+    }
+    
+    .listExperiences li ul { 
+      padding-left: 10px;
+      margin-left: 10px; /*left side to outside distance */
+      border-left: solid 4px white; /*same as the middle line*/
+    }
+    
+    
+    
+    /* list Skill */
+    .listSkill {
+      display: flex; /*circle will stay in same line*/ 
+      flex-wrap: wrap; /*when it's full, will go to next line*/
+    }
+    
+    .listSkill li {
+      width: 30%;
+      padding: 5px; 
+      box-sizing: border-box; /* to make inside and outside distance includ in all*/
+      display: flex;
+      flex-direction: column;
+      align-items: center;  /*all el place in central*/
+    }
+    
+    .circle {   /*circle%*/
+      width: 50px;
+      height: 50px;
+      background-color: #fff;
+      border-radius: 50%; /*the corner change to curve*/
+      position: relative; /*make % can take this position*/
+      overflow: hidden;   /*hide extra part*/
+      background-color: rgba(255, 113, 104, 0.4); /*make it lighter*/
+    }
+    
+    .circle::after { /**/
+      content: "";
+      display: block; /*so we can set WnH freely*/
+      background-color: black;
+      width: calc(100% - 20px); /*has to be " - " */
+      height: calc(100% - 20px); /*or the middle circle won't show*/
+      border-radius: 50%;
+      position: relative;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+    
+    .p90, .p180, .p270, .p360{
+      width: 50%;
+      height: 50%;
+      position: absolute; /*inside of the circle*/
+      left: 50%;
+      top: 0;
+      background-color: #FF7168;
+    
+    }
+    
+    .p180 {
+      top: 50%;
+    }
+    
+    .p270 {
+      left: 0;
+      top: 50%;
+    }
+    
+    .p360 {
+      left: 0;
+      top: 0; 
+    }
+    
+    
+    /* list program */
+    .listProgram .bar {  /*edge of the bar*/
+      width: 50%;
+      height: 8px;
+      border: solid 2px #FF7168;
+      border-radius: 5px;  /*90deg corner => ) */
+    }
+    .listProgram li{
+        display: flex;               /*bar and text in same line*/
+        justify-content: space-between; 
+        align-items: center;         /*bar and text adjust */
+        padding-top: 10px;           /*bar and text distances */
+    }
+    
+    .value {   /*inner color of the bar */
+      height: 100%;
+      width: 60%;
+      background-color: #FF7168;
+    }
+    
+    .value.p10 {
+      width: 10%;
+    }
+    
+    .value.p20 {
+      width: 20%;
+    }
+    
+    .value.p30 {
+      width: 30%;
+    }
+    
+    .value.p40 {
+      width: 40%;
+    }
+    
+    .value.p50 {
+      width: 50%;
+    }
+    
+    .value.p60 {
+      width: 60%;
+    }
+    
+    .value.p70 {
+      width: 70%;
+    }
+    
+    .value.p80 {
+      width: 80%;
+    }
+    
+    .value.p90 {
+      width: 90%;
+    }
+    
+    .value.p100 {
+      width: 100%;
+    }
+    
+    .btn{
+    /*   display: inline-block;
+      box-sizing: border-box;*/
+      border: solid 3px #FF7168;
+      padding: 5px 15px;
+      margin: 2px
+    }
+    
+    .fill{
+      background-color: #FF7168;
+    }
+    
+    
+    @media screen and (max-width: 800px){
+      .resume {
+        display: block;      
+        max-width: 800px;
+        border: solid 8px white; 
+        padding: 50px; 
+        position: relative;
+      }
+      .left {
+        width: 90%;  
+        border-right: none;
+        padding-right: 0px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      
+      .right {
+        width: 90%;
+      }
+      
+      .decoration {  
+        width: 200px;
+        height: 100px;
+        background: linear-gradient(135deg, #FF7168, purple);
+        border-radius: 70px 0 0 70px; 
+        position: absolute; 
+        right: 0; 
+        top: 50px;  
+      }
+    }
+    
+    @media screen and (max-width: 400px){
+        .decoration {  
+        width: 150px;
+        height: 75px;
+        background: linear-gradient(135deg, #FF7168, purple);
+        border-radius: 70px 0 0 70px; 
+        position: absolute; 
+        right: 0;
+        top: 50px; 
+      }
+    }

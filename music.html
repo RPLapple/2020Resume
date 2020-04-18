@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <!-- 一開始少這行，沒導入jQuery就不會自動開始 -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> 
+        <link rel="stylesheet" href="css/music.css">
+        <title>Music</title>
+    </head>
+    <body>
+        <div class="infos fadeIn animated">
+            <div>
+                <a class="block" href="house.html">House</a>
+                <a class="block" href="music.html">Music</a>
+                <a class="block" href="snake.html">Snake</a>
+                <a class="block" href="resume.html">Resume</a>
+            </div>
+            <br/>
+            <h1>Memory<br>Blocks</h1>
+            <h3 class="status">-</h3>
+        </div>
+        <div class="blocks fadeIn animated">
+            <div class="row">
+                <div class="block block1" onclick="game.userSendInput('1')">1 </div>
+                <div class="block block2" onclick="game.userSendInput('2')">2 </div>
+                <div class="block block3" onclick="game.userSendInput('3')">3 </div>
+            </div>
+            <div class="row">
+                <div class="block block4" onclick="game.userSendInput('4')">4 </div>
+                <div class="block block5" onclick="game.userSendInput('5')">5 </div>
+                <div class="block block6" onclick="game.userSendInput('6')">6 </div>
+            </div>            
+            <div class="row">
+                <div class="block block7" onclick="game.userSendInput('7')">7</div>
+                <div class="block block8" onclick="game.userSendInput('8')">8</div>
+                <div class="block block" onclick="game.userSendInput('')"></div>
+            </div>
+            <div class="row">
+                <div class="inputStatus"></div>
+            </div>
+        </div>
+        <!-- <script type="text/javascript" src="music.js"></script>     -->
+    <script src="js/music.js"></script>
+    </body>
+</html>

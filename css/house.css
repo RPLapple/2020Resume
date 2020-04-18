@@ -1,0 +1,651 @@
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+*, *:before, *:after {
+  font-family: 'Lobster', cursive;
+  position: relative;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  border-radius: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #2C2F36;
+  color: white;  /*h1-h6都會找到網頁底部看有沒有文字顏色*/
+}
+
+.scene {
+  width: 700px;    
+  height: 500px;
+  border-radius: 15px;
+  overflow: hidden;
+  background: linear-gradient(black, #1d2e54, #91cdff, #fff);
+/*   background-image: linear-gradient(direction, color-stop1, color-stop2, ...); */
+/*   background-image: linear-gradient(red, yellow); */
+  background-size: 100% 300%; /*寬高拉長，然後白天晚上用上下移動的方式*/
+  box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+
+.lefttopText {
+  margin-left: 30px;
+  margin-top: 30px;
+}
+
+.lefttopText h1 {
+  font-size: 36px;
+  letter-spacing: 3px;
+  margin-top: 0;
+  font-weight: 300;
+}
+
+.lefttopText h5 {
+  font-size: 14px;
+  letter-spacing: 1px;
+  opacity: 0.6;
+  margin-bottom: 0;
+  font-weight: 300;
+}
+
+.lefttopText p {
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: 2px;
+  opacity: 0.6;
+}
+
+.lefttopText .blueblock {
+  background-color: #7cb1ff;
+  width: 20px;
+  height: 25px;
+  border-radius: 0;
+}
+
+.building {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  transform: scale(0.95);
+}
+
+[class^="house"] {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.house1 {
+  width: 180px;
+  height: 200px;
+  border-radius: 80px 80px 0 0;
+  z-index: 1;
+  background-color: #fafaf5;
+  box-shadow: inset -30px 0px #e3e2cf;
+    /* inset 希望陰影顏色在內 */
+}
+
+.house1 .window {
+  width: 40px;
+  height: 100px;
+  border-radius: 20px;
+  background-color: #e3e2cf;
+  box-shadow: inset 8px 5px #bebdaf;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 40px;
+  margin-left: 70px;
+}
+
+.house1 .window .circle1 {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: red;
+  margin: 4px;
+  margin-left: 10px;
+}
+
+.house1 .window .circle2 {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: yellow;
+  margin: 4px;
+  margin-left: 10px;
+}
+
+.house1 .window .circle3 {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: green;
+  margin: 4px;
+  margin-left: 10px;
+}
+
+.house2 {
+  width: 240px;
+  height: 170px;
+  border-radius: 250px 50px 0 0;
+  right: 130px;
+  z-index: 2;
+  background-color: #fafaf5;
+  box-shadow: inset 0px 20px #55A7FF, inset -72px 0px #e3e2cf;
+}
+
+.house2 .door {
+  width: 40px;
+  height: 80px;
+  border-radius: 40px;
+  position: absolute;
+  bottom: 0;
+  left: 100px;
+  background-color: #2C2F36;
+  box-shadow: inset 10px 2px grey;
+}
+
+.house3 {
+  width: 420px;
+  height: 250px;
+  border-radius: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 0;    /* 哪個圖顯示在前面 數字越小在越後面 */
+  background-color: #fafaf5;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+.house3 .wall {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.house3 .wall .window {
+  width: 44px;
+  height: 44px;
+  border-radius: 22px;
+  margin-top: 25px;
+  background-color: #2C2F36;
+}
+
+/* 城牆上緣 */
+.house3 .wall:before { 
+  content: "";
+  display: block;
+  width: 105%;
+  height: 20px;
+/*   border-radius: 0; */
+  position: absolute;
+  top: -20px;
+  background-color: inherit; 
+/*  直接繼承house3的顏色  */
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+}
+
+.house3 .wall:nth-child(1) {
+  background-color: #fafaf5;
+  flex: 10;
+}
+
+.house3 .wall:nth-child(2) {
+  background-color: #e3e2cf;
+  flex: 14; 
+  /* 占比大小 */
+}
+
+.house3 .wall:nth-child(3) {
+  background-color: #bebdaf;
+  flex: 10;
+}
+
+.house3 .wall:nth-child(1):before {
+  z-index: 1;
+}
+
+.house3 .wall:nth-child(2):before {
+  z-index: 2;
+  /* 所以中間那條才能蓋住左右兩個 */
+}
+
+.house3 .wall:nth-child(3):before {
+  z-index: 1;
+}
+
+.house3 .wall:nth-child(1) .window {
+  box-shadow: inset 8px 0px #7cb1ff;
+}
+
+.house3 .wall:nth-child(2) .window {
+  box-shadow: inset 0px 0px #7cb1ff;
+}
+
+.house3 .wall:nth-child(3) .window {
+  box-shadow: inset -8px 0px #7cb1ff;
+}
+
+.roof {
+  width: 400px;
+  height: 170px;
+  border-radius: 200px 200px 0 0;
+  position: absolute;
+  top: -170px;
+  right: 5px;
+  background: linear-gradient(150deg, pink, orange);
+}
+
+.roof .rooftop {
+  width: 28px;
+  height: 14px;
+  border-radius: 14px 14px 0 0;
+  position: absolute;
+  left: 50%;
+  top: -14px;
+  transform: translateX(-50%);
+  background-color: yellow;
+}
+
+.roof .cross {
+  width: 4px;
+  height: 30px;
+  border-radius: 0;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 10px;
+  background-color: #fff;
+}
+
+.roof .cross:before {
+  content: "";      /*虛擬元素才能顯示*/
+  display: block;   /*虛擬元素才能調整寬高*/
+  width: 20px;
+  height: 4px;
+  border-radius: 0;
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #fff;
+}
+
+/* 希望星空跟整張圖片一樣大W,H */
+.allstars {
+  width: 100%;
+  height: 100%;
+  border-radius: 0;
+  position: absolute;
+  left: 0; 
+  top: 0;
+/* 起始位置也跟圖片一樣 */
+}
+
+
+/* 星星落下的動畫
+   0, 100 看不到
+   70 完全看得到
+   透明看到不透明再透明消失
+   transform 右上到左下偏移*/
+@keyframes falling {
+  0%, 100% {
+    opacity: 0;
+  }
+  70% {
+    opacity: 1;
+  }
+  0% {
+    transform: translate(100px, 0px);
+  }
+  100% {
+    transform: translate(0px, 200px);
+  }
+}
+
+/* 選取所有開頭是star的class */
+/* 直徑3 50％圓弧 */
+.allstars [class^='star'] {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background-color: #fff;
+  animation: falling 2s infinite;
+  /* infinite無限循環 */
+}
+
+/* 本來sass的做法：
+@for $i from 1 through 30 
+  .star#{$i}  從1~30自動
+    $posX: random()*100% 
+    $posY: random()*-80%+50%  就會分開位置
+    +abpos($posX,$posY)       固定位置
+    animation-delay: $i*-0.1s 太同步了，所以*-0.1s
+    - 代表提早開始，如果是＋的，就會停滯一段時間*/
+
+.allstars .star1 {
+  position: absolute;
+  left: 86%;
+  top: 17%;
+  animation-delay: -0.1s;
+}
+
+.allstars .star2 {
+  position: absolute;
+  left: 28%;
+  top: -9%;
+  animation-delay: -0.2s;
+}
+
+.allstars .star3 {
+  position: absolute;
+  left: 42%;
+  top: 17%;
+  animation-delay: -0.3s;
+}
+
+.allstars .star4 {
+  position: absolute;
+  left: 11%;
+  top: -3%;
+  animation-delay: -0.4s;
+}
+
+.allstars .star5 {
+  position: absolute;
+  left: 22%;
+  top: 21%;
+  animation-delay: -0.5s;
+}
+
+.allstars .star6 {
+  position: absolute;
+  left: 78%;
+  top: 47%;
+  animation-delay: -0.6s;
+}
+
+.allstars .star7 {
+  position: absolute;
+  left: 15%;
+  top: 14%;
+  animation-delay: -0.7s;
+}
+
+.allstars .star8 {
+  position: absolute;
+  left: 86%;
+  top: 16%;
+  animation-delay: -0.8s;
+}
+
+.allstars .star9 {
+  position: absolute;
+  left: 52%;
+  top: 38%;
+  animation-delay: -0.9s;
+}
+
+.allstars .star10 {
+  position: absolute;
+  left: 44%;
+  top: -5%;
+  animation-delay: -1s;
+}
+
+.allstars .star11 {
+  position: absolute;
+  left: 30%;
+  top: 18%;
+  animation-delay: -1.1s;
+}
+
+.allstars .star12 {
+  position: absolute;
+  left: 24%;
+  top: 22%;
+  animation-delay: -1.2s;
+}
+
+.allstars .star13 {
+  position: absolute;
+  left: 35%;
+  top: 28%;
+  animation-delay: -1.3s;
+}
+
+.allstars .star14 {
+  position: absolute;
+  left: 24%;
+  top: 6%;
+  animation-delay: -1.4s;
+}
+
+.allstars .star15 {
+  position: absolute;
+  left: 49%;
+  top: -15%;
+  animation-delay: -1.5s;
+}
+
+.allstars .star16 {
+  position: absolute;
+  left: 42%;
+  top: -8%;
+  animation-delay: -1.6s;
+}
+
+.allstars .star17 {
+  position: absolute;
+  left: 77%;
+  top: -24%;
+  animation-delay: -1.7s;
+}
+
+.allstars .star18 {
+  position: absolute;
+  left: 78%;
+  top: 22%;
+  animation-delay: -1.8s;
+}
+
+.allstars .star19 {
+  position: absolute;
+  left: 8%;
+  top: -30%;
+  animation-delay: -1.9s;
+}
+
+.allstars .star20 {
+  position: absolute;
+  left: 87%;
+  top: -21%;
+  animation-delay: -2s;
+}
+
+.allstars .star21 {
+  position: absolute;
+  left: 82%;
+  top: -27%;
+  animation-delay: -2.1s;
+}
+
+.allstars .star22 {
+  position: absolute;
+  left: 65%;
+  top: 39%;
+  animation-delay: -2.2s;
+}
+
+.allstars .star23 {
+  position: absolute;
+  left: 68%;
+  top: 49%;
+  animation-delay: -2.3s;
+}
+
+.allstars .star24 {
+  position: absolute;
+  left: 62%;
+  top: -2%;
+  animation-delay: -2.4s;
+}
+
+.allstars .star25 {
+  position: absolute;
+  left: 88%;
+  top: -9%;
+  animation-delay: -2.5s;
+}
+
+.allstars .star26 {
+  position: absolute;
+  left: 41%;
+  top: 13%;
+  animation-delay: -2.6s;
+}
+
+.allstars .star27 {
+  position: absolute;
+  left: 43%;
+  top: 48%;
+  animation-delay: -2.7s;
+}
+
+.allstars .star28 {
+  position: absolute;
+  left: 23%;
+  top: -8%;
+  animation-delay: -2.8s;
+}
+
+.allstars .star29 {
+  position: absolute;
+  left: 72%;
+  top: 29%;
+  animation-delay: -2.9s;
+}
+
+.allstars .star30 {
+  position: absolute;
+  left: 97%;
+  top: 1%;
+  animation-delay: -3s;
+}
+
+.remind {
+  opacity: 0.2;
+  z-index: 2;
+  margin-bottom: 2px;
+  letter-spacing: 1px;
+}
+.block {
+/*   border: solid 3px gray; */
+  padding: 1px 15px;
+  margin: 1px;
+  text-decoration-line: none;
+  color: white;
+}
+
+.dayText {
+  display: none;
+}
+
+.sun, .moon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  position: absolute;
+  left: 250px;
+  top: 100px;
+}
+
+.sun {
+  background-color: #ffdd38;
+  box-shadow: 0px 0px 20px rgba(255, 221, 56, 0.5);
+  top: 400px;
+  opacity: 0;
+}
+
+/* both 維持在最後的狀態 */
+.moon {
+  animation: moonAppear 5s both;
+}
+
+/* 月亮的動畫 100啪的時候才會是剛剛看到的那種 */
+@keyframes moonAppear {
+  0% {
+    box-shadow: inset 0px 0px rgba(255, 255, 255, 0.9);
+  }
+  100% {
+    box-shadow: inset 10px -10px rgba(255, 255, 255, 0.9);
+  }
+}
+
+/* 讓所有會變化的元素都抓出來，讓他花兩秒鐘變化 */
+h1, h5, p, .moon, .sun, .scene, .allstars, .blueblock, .building {
+  transition: 2s;
+}
+
+input:checked + .scene {
+  background-position: 0 100%;
+}
+
+/* 隱藏晚上文字 顯示白天文字*/
+input:checked + .scene .nightText {
+  display: none;
+}
+
+input:checked + .scene .dayText {
+  display: block;
+}
+
+input:checked + .scene .allstars {
+  opacity: 0;
+}
+
+input:checked + .scene h1, input:checked + .scene h5, input:checked + .scene p {
+  color: #222;
+}
+
+/* 再加一點濾鏡，讓房子看起來更像早上照到太陽 */
+input:checked + .scene .building {
+  filter: brightness(105%);
+}
+
+input:checked + .scene .moon {
+  top: -100px;
+  opacity: 0;
+}
+
+input:checked + .scene .sun {
+  top: 100px;
+  opacity: 1;
+}
+
+
+/* input:checked + .roof {
+  width: 400px;
+  height: 170px;
+  border-radius: 200px 200px 0 0;
+  position: absolute;
+  top: -170px;
+  right: 5px;
+  background: linear-gradient(150deg, pink, orange);
+} */
+
+/* 打勾勾的小格子就會不見 */
+input {
+  display: none;
+}
+
+/* 
+有沒有辦法讓白天夜晚的屋頂顏色不同？ 
+月亮和太陽的形狀要不要再變一下 
+房子形狀是不是再改改
+*/

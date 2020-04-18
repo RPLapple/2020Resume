@@ -1,0 +1,45 @@
+html, body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  margin: 0;
+  background-color: black;
+}
+
+canvas {
+  max-width: 100vmin;
+}
+
+.block {
+  border: solid 3px gray;
+  padding: 5px 15px;
+  margin: 2px;
+  text-decoration-line: none;
+  color: white;
+}
+
+.panel {
+  position: absolute;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 50px;
+}
+
+button {
+  background-color: transparent;
+  border: solid 1px white;
+  border-radius: 20px;
+  padding: 5px 10px;
+  color: white;
+  cursor: pointer;
+  outline: none;
+}
+
+button:hover {
+  background-color: #fff;
+  color: black;
+}
