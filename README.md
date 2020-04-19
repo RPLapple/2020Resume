@@ -1,5 +1,5 @@
 # 2020Project 
-## What is This For
+## This is For
 2020 SE_19 Web Tech Basic 
 
 ## Getting Started
