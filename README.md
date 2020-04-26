@@ -7,6 +7,8 @@ This is a Third-Party student, 2nd semester project from CODE University of Appl
 
 ## Prerequisites
 Click the link: https://rplapple.github.io/2020Resume/
+or here, hosted by DigitalOcean: http://2020resume.xyz/
+
 
 
 ## After Click 
