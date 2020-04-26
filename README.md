@@ -6,7 +6,7 @@
 This is a Third-Party student, 2nd semester project from CODE University of Applied Science (2019-2022) who believe "Don't part with your illusions, but make it true. We cannot improve our past, but we can improve our future."
 
 ## Prerequisites
-Click the link: https://rplapple.github.io/2020Resume/
+Click the link: https://rplapple.github.io/2020Resume/  
 or here, hosted by DigitalOcean: http://2020resume.xyz/
 
 
